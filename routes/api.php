@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/generated--webhook', [WebHookController::class, 'webhookHandler']);
+Route::get('/get-generated-image/{order_id}',[WebHookController::class,'getGeneratedImageHandle']);

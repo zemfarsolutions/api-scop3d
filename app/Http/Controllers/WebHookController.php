@@ -42,4 +42,25 @@ class WebHookController extends Controller
             'message' => 'Got it!'
         ]);
     }
+
+    public function getGeneratedImageHandle($order_id){
+        $generated_images=Render::where('order_id',$order_id)
+                                ->get();
+        
+
+        if(isset($generated_images)){
+
+            return response()->json([
+                'generated_images' => $generated_images, 
+                'status' => 200,
+                'message' => 'Ok'
+            ]);
+        }
+        else{
+            return response()->json([
+                'status' => 500,
+                'message' => 'Internal server error'
+            ]);
+        }
+    }
 }
