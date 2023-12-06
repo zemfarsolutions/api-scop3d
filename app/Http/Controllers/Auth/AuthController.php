@@ -37,7 +37,7 @@ class AuthController extends Controller
                 return redirect()->intended('/telescope');
             }
             else{
-                return back()->with('error','Invalid Credentials');
+                return redirect('/')->with('error','Invalid Credentials');
             }
         }
     }
