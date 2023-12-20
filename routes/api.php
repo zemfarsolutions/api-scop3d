@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebHookController;
+use App\Http\Controllers\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/generated--webhook', [WebHookController::class, 'webhookHandler']);
 Route::get('/get-generated-image/{order_id}',[WebHookController::class,'getGeneratedImageHandle']);
+Route::get('/purchase/success/{userId}', [WalletController::class, 'purchaseSuccess'])->name('purchase.success');
+Route::get('/purchase/cancel', [WalletController::class, 'purchaseCancel'])->name('purchase.cancel');

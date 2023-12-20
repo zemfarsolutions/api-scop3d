@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\WalletController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,4 @@ use App\Http\Controllers\Auth\AuthController;
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/', [AuthController::class, 'check']);
 Route::get('/logout', [AuthController::class, 'destroy']);
+
